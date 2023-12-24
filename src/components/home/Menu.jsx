@@ -8,7 +8,6 @@ import burger3 from "../../assets/burger3.png";
 const Menu = () => {
   // Define addToCartHandler function here
   const addToCartHandler = (itemNum) => {
-    // Add your logic for handling the "Buy Now" button click here
     console.log(`Item ${itemNum} added to cart`);
   };
   return (

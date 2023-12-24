@@ -12,14 +12,35 @@ const Menu = () => {
     console.log(`Item ${itemNum} added to cart`);
   };
   return (
-    <MenuCard
-      itemNum={1}
-      burgerSrc={burger1}
-      price={200}
-      title="Cheese Burger"
-      handler={addToCartHandler} // Pass the addToCartHandler function as a prop
-      delay={0.1}
-    />
+    <div id="menu">
+      <h1>Our Menu</h1>
+      <div>
+        <MenuCard
+          itemNum={1}
+          burgerSrc={burger1}
+          price={200}
+          title="Cheese Burger"
+          handler={addToCartHandler} // Pass the addToCartHandler function as a prop
+          delay={0.1}
+        />
+        <MenuCard
+          itemNum={2}
+          burgerSrc={burger2}
+          price={200}
+          title="VEG CHESSE BURGER”"
+          handler={addToCartHandler} // Pass the addToCartHandler function as a prop
+          delay={0.5}
+        />
+        <MenuCard
+          itemNum={3}
+          burgerSrc={burger3}
+          price={200}
+          title="Cheese Burger with French Fries"
+          handler={addToCartHandler} // Pass the addToCartHandler function as a prop
+          delay={0.9}
+        />
+      </div>
+    </div>
   );
 };
 

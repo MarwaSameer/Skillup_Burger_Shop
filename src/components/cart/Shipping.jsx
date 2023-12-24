@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Country, State } from "country-state-city";
 import Popup from "reactjs-popup";
 
 const Shipping = () => {
+  const [country, setCountry] = useState("");
   return (
     <section className="shipping">
       <main>
@@ -18,23 +19,45 @@ const Shipping = () => {
           </div>
           <div>
             {/* Compelte the code for the COUNTRY DROPDOWN*/}
+            {/* COUNTRY DROPDOWN*/}
             <label>Country</label>
-
-            <select>
+            <select onChange={(e) => setCountry(e.target.value)}>
               <option value="">Country</option>
-              {/* Enter the code here for country dropdown */}
-
-              <option value="Egy">Egypt</option>
-              <option value="Tun">Tunisia</option>
-              <option value="Alg">Algeria</option>
+              {Country &&
+                Country.getAllCountries().map((i) => (
+                  <option value={i.isoCode} key={i.isoCode}>
+                    {i.name}
+                  </option>
+                ))}
             </select>
           </div>
-          <div>{/* Add the code for the STATE DROPDOWN*/}</div>
+
+          <div>
+            <label>State</label>
+            <select>
+              <option value="">State</option>
+              {State &&
+                State.getStatesOfCountry(country).map((i) => (
+                  <option value={i.isoCode} key={i.isoCode}>
+                    {i.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+
           <div>
             <label>Pin Code</label>
             <input type="number" placeholder="Enter Pincode" />
           </div>
           {/* // Enter thr code for contact */}
+          <div>
+            <label>Phone No.</label>
+            <input
+              placeholder="Enter Phone No."
+              value={Country.getCountryByCode(country)?.phonecode}
+            />
+          </div>  
+
           <Popup
             trigger={<button type="button">Confirm Order</button>}
             position="right center"
